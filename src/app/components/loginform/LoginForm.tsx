@@ -2,8 +2,8 @@
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import Image from 'next/image'
-import LoginImage from '@/../public/Login Image.jpg'
+// import Image from 'next/image'
+// import LoginImage from '@/../public/Login Image.jpg'
 
 const loginSchema = z.object({
     email:z.string().email("Email inválido."),
