@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import validate from "../utils/validate";
-import Loading from "./Loading";
+import BlockPage from "./BlockPage";
 
 export function PaginaSegura() {
   const router = useRouter();
@@ -10,7 +10,6 @@ export function PaginaSegura() {
   async function validarToken() {
     const response = await validate();
     if (response.status !== 200) {
-      alert("Acesso não autorizado. Faça login antes.");
       router.push("/login");
     }
   }
@@ -19,12 +18,11 @@ export function PaginaSegura() {
     if (localStorage.getItem("token")) {
       validarToken();
     } else {
-      alert("Acesso não autorizado. Faça login antes.");
       router.push("/login");
     }
     setIsLoading(false)
   }, []);
-  return <>{isLoading && <Loading />}</>;
+  return <>{isLoading && <BlockPage />}</>;
 }
 
 export function PaginaSemToken() {
