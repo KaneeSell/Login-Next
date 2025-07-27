@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import validate from "../utils/validate";
-import BlockPage from "./BlockPage";
+import Loading from "./Loading";
 
 export function PaginaSegura() {
   const router = useRouter();
@@ -22,7 +22,7 @@ export function PaginaSegura() {
     }
     setIsLoading(false)
   }, []);
-  return <>{isLoading && <BlockPage />}</>;
+  return <>{isLoading && <Loading />}</>;
 }
 
 export function PaginaSemToken() {
