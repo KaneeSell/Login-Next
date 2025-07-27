@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import LoginForm from "../components/loginform/LoginForm";
 import LayoutPaiTema from "../components/theme/LayoutPaiTema";
-import { PaginaSemToken } from "../components/ValidateToken";
 import validate from "../utils/validate";
 import { useRouter } from "next/navigation";
 import Loading from "../components/Loading";
@@ -24,7 +23,6 @@ export default function Login() {
   if (blockPage) return <LayoutPaiTema><Loading/></LayoutPaiTema>
   return (
     <LayoutPaiTema>
-      <PaginaSemToken/>
       <LoginForm />
     </LayoutPaiTema>
   );

@@ -1,8 +1,7 @@
-"use client";
-import { useRouter } from "next/router";
+'use client'
+import { useRouter } from "next/navigation";
 import RegisterForm from "../components/registerForm/RegisterForm";
 import LayoutPaiTema from "../components/theme/LayoutPaiTema";
-import { PaginaSemToken } from "../components/ValidateToken";
 import validate from "../utils/validate";
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
@@ -24,7 +23,6 @@ export default function Register() {
   if (blockPage) return <LayoutPaiTema><Loading/></LayoutPaiTema>
   return (
     <LayoutPaiTema>
-      <PaginaSemToken />
       <RegisterForm />
     </LayoutPaiTema>
   );
