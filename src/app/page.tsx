@@ -37,7 +37,7 @@ export default function Inicio() {
     <LayoutPaiTema>
       {isLoading && <Loading />}
       <PaginaSegura />
-      <div className="w-full h-screen flex flex-col gap-3 items-center justify-center">
+      <div className="w-full min-h-svh flex flex-col gap-3 items-center justify-center">
         <span>Login realizado, página segura.</span>
         <span
           onClick={() => logout()}

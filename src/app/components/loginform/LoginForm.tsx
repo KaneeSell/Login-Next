@@ -53,8 +53,6 @@ export default function LoginForm() {
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         const apiMessage = error.response?.data?.message;
-        const apiData = error.response?.data;
-        alert("apiData: " + apiData);
         if (apiMessage) {
           alert("Erro ao cadastrar: " + apiMessage);
         } else {
@@ -70,7 +68,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex justify-center items-center w-full h-screen px-5">
+    <div className="flex justify-center items-center w-full h-svh px-5">
       {isLoading && <Loading/>}
       <div className="border-1 rounded-2xl flex flex-col items-centerh-110 lg:flex-row ">
         {/* <figure className='overflow-hidden h-1/4'>

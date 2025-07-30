@@ -44,12 +44,17 @@ export default function RegisterForm() {
     setIsLoading(true)
     try {
       await axios.post("/api/auth/register", data).then((res) => {
-        if(res.data.status === 201) {
-            console.log(res.data);
+        const resStatus = res.data.status
+        const resMessage = res.data.message
+        if(resStatus === 201) {
             alert("Registro realizado com sucesso!");
             router.push('/login')
         } else {
-            alert(res.data.status + ' : ' + res.data.message)
+          if(resStatus && resMessage){
+            alert(resStatus + ' : ' + resMessage)
+          } else {
+            alert('Erro inesperado ao cadastrar, tente novamente.')
+          }
         }
         setIsLoading(false)
       });
@@ -70,7 +75,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="flex justify-center items-center w-full h-screen px-5">
+    <div className="flex justify-center items-center w-full min-h-svh px-5">
       {isLoading && <Loading/>}
       <div className="border-1 rounded-2xl flex flex-col items-centerh-110 lg:flex-row">
         {/* <figure className='overflow-hidden h-1/4'>
